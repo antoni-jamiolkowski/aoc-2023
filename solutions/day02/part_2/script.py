@@ -1,7 +1,7 @@
 import argparse
 
-import pytest
 import numpy as np
+import pytest
 
 
 def main(input_file_path: str) -> int:
@@ -21,7 +21,9 @@ def main(input_file_path: str) -> int:
 
 def extract_cubes_count(subset: str) -> np.ndarray:
     color_id_mapping = dict(red=0, green=1, blue=2)
-    cubes_count = np.zeros(3) # the first value is for red, second for green, third for blue
+    cubes_count = np.zeros(
+        3
+    )  # the first value is for red, second for green, third for blue
     cubes = subset.split(",", maxsplit=3)
     for cube_record in cubes:
         count, color = cube_record.strip().split(" ")

@@ -2,7 +2,6 @@ import argparse
 
 import pytest
 
-
 DIGITS_MAPPING: dict[str, str] = {
     "one": "1",
     "two": "2",
@@ -15,7 +14,7 @@ DIGITS_MAPPING: dict[str, str] = {
     "nine": "9",
 }
 
-DIGITS: tuple[str, ...] = tuple(str(digit_int)for digit_int in range(1,10))
+DIGITS: tuple[str, ...] = tuple(str(digit_int) for digit_int in range(1, 10))
 
 
 def main(input_file_path: str) -> int:
@@ -27,6 +26,7 @@ def main(input_file_path: str) -> int:
     numbers = map(lambda fd, ld: int(fd + ld), first_digit, last_digit)
 
     return sum(numbers)
+
 
 def find_first_digit(line: str) -> str:
     for index, character in enumerate(line):
@@ -44,7 +44,7 @@ def find_last_digit(line: str) -> str:
         if character.isdigit():
             return character
         for digit_name, digit in DIGITS_MAPPING.items():
-            if line[:index + 1].endswith(digit_name):
+            if line[: index + 1].endswith(digit_name):
                 return digit
 
     raise AssertionError("No digit was found.")
